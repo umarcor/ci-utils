@@ -3,4 +3,4 @@
 : "${SG_HOME:=/home/singularity}"
 : "${SG_CWD:=/home/singularity/cwd}"
 
-singularity run --env INSULARITY=true --cleanenv --home ${SG_HOME} --pwd ${SG_CWD} -B `pwd`:${SG_CWD} $@
+SINGULARITYENV_INSULARITY=true singularity run --cleanenv --home ${SG_HOME} --pwd ${SG_CWD} -B `pwd`:${SG_CWD} $@
