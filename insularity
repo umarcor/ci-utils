@@ -1,0 +1,6 @@
+#!/bin/bash
+
+: "${SG_HOME:=/home/singularity}"
+: "${SG_CWD:=/home/singularity/cwd}"
+
+singularity run --env INSULARITY=true --cleanenv --home ${SG_HOME} --pwd ${SG_CWD} -B `pwd`:${SG_CWD} $@
