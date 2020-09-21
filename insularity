@@ -3,4 +3,4 @@
 : "${SG_HOME:=/home/singularity}"
 : "${SG_CWD:=/home/singularity/cwd}"
 
-SINGULARITYENV_INSULARITY=true singularity run --cleanenv --home ${SG_HOME} --pwd ${SG_CWD} -B `pwd`:${SG_CWD} $@
+SINGULARITYENV_INSULARITY=true singularity run --writable-tmpfs --cleanenv --home ${SG_HOME} --pwd ${SG_CWD} -B `pwd`:${SG_CWD} $@
