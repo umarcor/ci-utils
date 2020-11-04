@@ -1,0 +1,21 @@
+name: check
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 3'
+
+jobs:
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install wheel setuptools
+        python3 -m pip install PyGitHub tabulate
+
+    - name: Check CI usage in repos of org 'antmicro'
+      run: INPUT_TOKEN='${{ github.token }}' ./ci-stats.py
